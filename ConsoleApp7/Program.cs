@@ -2,70 +2,57 @@
 
 namespace ConsoleApp7
 {
-    class car
+    class Cars
     {
-        public string name;
-        protected int speed;
-        protected double motor;
-        protected string model;
+        protected string Model;
+        private int Speed;
 
-        public string getModel
+        public string GetModel
         {
-            get { return model; }
-            set { model = value; }
+            get { return Model; }
+            set { Model = value; }
         }
 
-        public int getSpeed
+        public int GetSpeed
         {
-            get { return speed; }
-            set { speed = value; }
-        }
-
-        public double getmotor
-        {
-            get { return motor; }
-            set { motor = value; }
+            get { return Speed; }
+            set { Speed = value; }
         }
     }
-
-    class Bmw : car
+    class Mercedec:Cars
     {
-        public Bmw()
+        public Mercedec()
         {
-            speed = 310;
-            motor = 6.4;
-            model = "m5 f90 cs";
+            Model = "Mercedec";
+            GetSpeed = 150;
+        }
 
+        public Mercedec(string model, int speed)
+        {
+            Model = model;
+            GetSpeed = speed;
+        }
+
+        public Mercedec(string model)
+        {
+            GetModel = model;
+                
         }
     }
-
-    class Mercedes : car
-    {
-        public Mercedes()
-        {
-            speed = 360;
-            motor = 1.4;
-            model = "Amg one: hybrid";
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            Bmw bmw = new Bmw();
-            Mercedes mercedes = new Mercedes();
-            bmw.name = "Bmw";
-            mercedes.name = "Mercedes";
+            Cars cars = new Cars();
+            Mercedec mercedec = new Mercedec();
+            Mercedec mercedec2 = new Mercedec("s Class");
+            Mercedec mercedec3 = new Mercedec("s Class",150);
+
+            Console.WriteLine(mercedec.GetModel);
+            Console.WriteLine(mercedec2.GetModel);
+            Console.WriteLine(mercedec.GetSpeed);
+            Console.WriteLine(mercedec3.GetSpeed);
             
-            Console.WriteLine(bmw.name);
-            Console.WriteLine(bmw.getSpeed);
-            Console.WriteLine(bmw.getmotor);
-            Console.WriteLine(bmw.getModel);
-            Console.WriteLine(mercedes.name);
-            Console.WriteLine(mercedes.getSpeed);
-            Console.WriteLine(mercedes.getmotor);
-            Console.WriteLine(mercedes.getModel);
         }
     }
 }
